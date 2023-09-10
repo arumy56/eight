@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-    <div className="flex-1 px-2 lg:flex-none md:justify-end ">
+    <div className="flex-1 px-2 lg:flex-none sm:flex justify-end ">
       <a className="text-lg font-bold ">Masjid Eight</a>
     </div> 
   </div>
