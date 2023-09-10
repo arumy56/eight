@@ -16,11 +16,12 @@ module.exports = {
       "retro",
       "cupcake",
       "winter",
+      "fantasy"
 
       
       
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require('@tailwindcss/typography'), require("daisyui")],
 }
 

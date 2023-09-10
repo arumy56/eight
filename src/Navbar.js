@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 const Navbar = () => {
   return ( 
     <div>
-  <div className="navbar bg-base-300 rounded-box"> 
+  <div className="navbar bg-base-300 square-box"> 
     <div className="flex justify-start flex-1 px-2">
       <div className="flex items-stretch">
         <div className="dropdown dropdown-start">
@@ -21,8 +21,8 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-    <div className="flex-1 px-2 lg:flex-none ">
-      <a className="text-lg font-bold">Masjid Eight</a>
+    <div className="flex-1 px-2 lg:flex-none md:justify-end ">
+      <a className="text-lg font-bold ">Masjid Eight</a>
     </div> 
   </div>
 </div>

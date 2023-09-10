@@ -1,20 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const detailsRef = useRef(null);
   const donationRef= useRef(null)
-  const [currentSlide, setCurrentSlide] = useState(0); 
-  const images = ["https://legacy.travelnoire.com/wp-content/uploads/2021/04/IMG_20180805_214425_368.jpg", "https://zamzam.com/blog/wp-content/uploads/2021/05/most-beautiful-mosques.jpg", "https://lh3.googleusercontent.com/p/AF1QipMR-TD2czpcqnmuGwLSdeq6JoWk2q-PFZRb6Bg=s1360-w1360-h1020"];
-   
-  const nextSlide= ()=>{
-    const next = currentSlide + 1 === images.length? 0 : currentSlide +1
-    setCurrentSlide(next)
-}
-
-const prevSlide = ()=> {
-  const prev = currentSlide -1  < 0 ? images.length - 1 : currentSlide -1
-  setCurrentSlide(prev)
-}
+ 
 
   return (
     <div>
@@ -61,7 +51,7 @@ const prevSlide = ()=> {
         onClick={ ()=>{
           donationRef.current.scrollIntoView({behavior: 'smooth'})
         }}
-      >Click Here</button>
+      >Contribute</button>
     </div>
   </div>
 </div>
@@ -100,7 +90,9 @@ const prevSlide = ()=> {
     <h2 className="card-title uppercase text-base ">History of the mosque!</h2>
     <p>The Mosque was established early 1960s to 1970s</p>
     <div className="card-actions justify-end mt-2">
-      <button className="btn btn-primary">Buy Now</button>
+     <Link to="/about">
+      <button className="btn btn-primary">learn more</button>
+      </Link> 
     </div>
   </div>
 </div>
@@ -110,7 +102,19 @@ const prevSlide = ()=> {
      
        {/* contribution */}
        <div ref={donationRef} data-theme="cupcake">
-       <div className="grid h-20 card bg-base-300 rounded-box place-items-center">content</div> 
+       <div className="hero min-h-screen bg-base-200 mt-2">
+  <div className="hero-content flex-col lg:flex-row">
+    <div className="lg:w-1/2 order-1">
+      <h1 className="text-5xl font-bold">Don't miss this chance to build your house Jannah!</h1>
+      <p className="py-6 font-semibold">Alhamdullilah the mosque has been able to buy its neighboring plot for the expansion through donations. 
+      <br />Now we are trying to raise another funds to help in expanding the mosque Insha Allah.
+      <br /> You can take part in the contribution by sending via the till number or the bank account</p>
+    </div>
+    <div className="lg:w-1/2 order-2 lg:pl-4 flex justify-end">
+      <img src="/mpesa.jpeg" alt="Mpesa" className=" rounded-lg shadow-2xl object-cover" />
+    </div>
+  </div>
+</div>
        </div>
 
        {/* end of contribution */}
@@ -118,21 +122,7 @@ const prevSlide = ()=> {
 
 
 
-      <div  id="details-section" data-theme="winter" className="mt-4">
-        <h2 className="text-3xl font-semibold mb-4 text-center pt-2">Eighth Street Mosque</h2>
-        <p className="text-lg mb-4 font-semibold text-center">Eighth Street Mosque was established in the 1960s.</p>
-
-        {/* Carousel */}
-        <div className="relative w-full h-[500px] overflow-hidden rounded-box carousel">
-          {images.map((image, index) => (
-            <div className={`carousel-item transition-opacity duration-300 ${currentSlide === index ? 'opacity-100' : 'opacity-0'} absolute w-full h-full flex justify-center items-center`}>
-            <img src={image} alt="Image" className="object-contain h-full" />
-            </div>
-          ))}
-          <button className="absolute top-1/2 left-2 z-10 bg-white p-2 rounded" onClick={prevSlide}>Prev</button>
-          <button className="absolute top-1/2 right-2 z-10 bg-white p-2 rounded" onClick={nextSlide}>Next</button>
-        </div>
-      </div>
+     
     </div>
     
   );
